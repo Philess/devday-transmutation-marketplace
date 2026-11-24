@@ -1,0 +1,14 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "kit-alchimiste",
+  "description": "Le kit de l'alchimiste : skills de spec, de revue de code et de règles métier ventes, plus le connecteur Work IQ (optionnel) pour partir d'un transcript de réunion Teams.",
+  "version": "1.1.0",
+  "author": {
+    "name": "Philess",
+    "url": "https://github.com/Philess"
+  },
+  "homepage": "https://github.com/Philess/devday-transmutation-marketplace",
+  "repository": "https://github.com/Philess/devday-transmutation-marketplace",
+  "license": "MIT",
+  "keywords": ["spec", "code-review", "agents", "skills", "work-iq", "devday"]
+}

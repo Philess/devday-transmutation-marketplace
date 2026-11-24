@@ -1,0 +1,24 @@
+{
+  "name": "for-the-people",
+  "owner": {
+    "name": "Philess"
+  },
+  "metadata": {
+    "description": "Marketplace d'exemple du DevDay : distribuer plugins, skills et serveurs MCP aux développeurs.",
+    "version": "1.0.0"
+  },
+  "plugins": [
+    {
+      "name": "kit-alchimiste",
+      "description": "Skills de spec, de revue de code et de règles métier ventes, plus le connecteur Work IQ (optionnel).",
+      "version": "1.1.0",
+      "source": "./plugins/kit-alchimiste",
+      "author": {
+        "name": "Philess",
+        "url": "https://github.com/Philess"
+      },
+      "license": "MIT",
+      "keywords": ["spec", "code-review", "agents", "skills", "work-iq", "devday"]
+    }
+  ]
+}

@@ -7,7 +7,7 @@ Marketplace d'exemple pour le DevDay : distribuer des plugins, skills et serveur
 ```text
 .github/plugin/marketplace.json     catalogue « for-the-people »
 plugins/kit-alchimiste/
-├── plugin.json                     nom, description, version 1.1.0
+├── plugin.json                     nom, description, version 1.2.0
 ├── mcp.json                        Work IQ (optionnel)
 └── skills/
     ├── spec/                       SKILL.md et spec-template.md

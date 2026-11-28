@@ -28,18 +28,24 @@ Suis `spec-template.md`, dans le dossier de cette skill. Les trois sections obli
 2. **Comment on saura que ça marche** : des contrôles concrets, par exemple une valeur de référence calculée indépendamment du code testé, ou un test qui échoue avant le changement et passe après. « Le build passe » n'est pas un critère.
 3. **Ce que ça ne doit pas casser** : les comportements, données et parcours existants à préserver.
 
-Ajoute ensuite le hors périmètre (avec sa raison), les hypothèses et au plus 3 questions restantes. La spec tient sur une page.
+Ajoute ensuite le hors périmètre (avec sa raison), les hypothèses et au plus 3 questions restantes. Garde la spec concise ; référence les fichiers de contrat si leur contenu ne tient pas sur une page.
 
 ## 4. Découper en tâches pour les agents
 
 - Une tâche = un agent = une PR, avec un seul objectif. Vise 2 à 5 tâches.
-- Déclare les dépendances. Les tâches dépendantes forment une pile de PR (stacked PRs), des fondations vers l'interface.
-- Deux tâches qui touchent les mêmes fichiers ne tournent pas en parallèle : fusionne-les ou empile-les.
-- Pour chaque tâche, donne : l'objectif, les fichiers ou dossiers concernés, ce dont elle dépend, le critère d'acceptation et le test qui doit échouer avant le changement.
+- **Développement en parallèle, intégration en pile.** Après validation humaine et obtention des décisions nécessaires, le coordinateur publie sur une branche `<sujet>/0-contrat` un **contrat partagé et figé** adapté au projet (types, signatures, interfaces ou squelettes nécessaires). Chaque tâche démarre de cette branche dans sa propre session et développe en parallèle contre ce contrat.
+- Déclare les dépendances et l'ordre d'intégration. La première PR contient aussi le contrat et vise la branche cible du projet ; chaque PR suivante vise la branche de la PR précédente. Après le développement parallèle, rebases, vérifications et intégration se font séquentiellement, des fondations vers les couches dépendantes.
+- **Un seul propriétaire par fichier.** Fournis une table de propriété couvrant les fichiers et leurs tests. Le coordinateur possède les fichiers partagés (contrat, configuration ou manifestes concernés) en phase 0 ; les agents ne modifient que leurs fichiers attribués. Si le contrat doit changer, l'agent s'arrête et demande une décision au coordinateur avant de reprendre.
+- Pour chaque tâche, donne : l'objectif, les fichiers possédés, les dépendances, ce qui peut se faire en parallèle et ce qui attend le rebase, le critère d'acceptation et le test qui doit échouer avant le changement. Choisis les vérifications adaptées au projet.
 - Rédige chaque tâche comme un prompt autonome. Un agent doit pouvoir l'exécuter sans lire cette conversation ; il commence par « Lis la spec `docs/specs/…` ».
+
+## 4 bis. Décisions avant le lancement
+
+- Toute règle que ni la source ni le code ne tranche devient une **décision à obtenir**, avec son responsable et l'endroit du contrat où elle sera consignée. Ne l'invente pas.
+- Aucune session de développement ne démarre tant que les décisions nécessaires ne sont pas prises et consignées, que la spec n'est pas validée par un humain et que le contrat n'est pas publié et figé.
 
 ## 5. Livrer et s'arrêter
 
 - Enregistre la spec dans `docs/specs/AAAA-MM-JJ-<sujet>.md`. Dans un projet Copilot, ajoute-la aussi à la Library du projet.
-- Présente un résumé : le périmètre, les tâches dans l'ordre, les limites et les questions.
-- **Arrête-toi là.** Ne lance aucune session et ne crée ni branche ni PR tant qu'un humain n'a pas validé la spec. Sa relecture est l'étape qui rapporte le plus dans tout le flux.
+- Présente un résumé : le périmètre, le contrat, la propriété des fichiers, les tâches et leur ordre d'intégration, les limites et les décisions à obtenir.
+- **Arrête-toi là.** Pose les décisions à obtenir et attends les réponses. Ne lance aucune session et ne crée ni branche ni PR tant qu'un humain n'a pas validé la spec. Sa relecture est l'étape qui rapporte le plus dans tout le flux.

@@ -11,7 +11,7 @@
     {
       "name": "kit-alchimiste",
       "description": "Skills de spec, de revue de code et de règles métier ventes, plus le connecteur Work IQ (optionnel).",
-      "version": "1.1.0",
+      "version": "1.2.0",
       "source": "./plugins/kit-alchimiste",
       "author": {
         "name": "Philess",
